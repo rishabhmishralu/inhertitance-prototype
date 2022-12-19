@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1,h2{
+            color: aliceblue;
+            text-align: center;
+            text-decoration: underline;
+        }
+        b{
+            color: brown;
+            margin-left: 30px;
+        }
+        pre{
+            color: aliceblue;
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript handson</h1>
+    <h2>Inheritance and Prototype</h2>
+    <hr>
+    <p><b>1-Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</b></p>
+    <pre>const child={
+        name:"Ram",
+        rollNo:10
+    }
+    const parents={
+        city:"lko",
+        mobileNo:12345,
+        ___proto__:child
+    }
+    console.log(parents);
+    </pre>
+    <hr>
+    <p><b>2-Write code to explain prototype chaining</b></p>
+    <pre>function student(name,rollNo){
+        this.name=name;
+        this.rollNo=rollNo;
+    }
+    let student1= new student("rishabh",08)
+    let student2= new student("aryan",02)
+    console.log(student1);
+    console.log(student2);
+    student1.sports='cricket'
+    
+    </pre>
+    <hr>
+    <p><b>3-Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</b></p>
+    <pre>arr1=[1,3,5,7,8]
+        arr2=[8,5,6,4,6]
+        arr3=[9,6,4,9,3]
+        
+        const arraySum={
+            add:function(arr){
+                let sum=0;
+                arr.forEach(element => {
+                  sum+=element;
+                });
+                console.log(sum)
+            }
+        }
+        
+        Array.__proto__=arraySum;
+        Array.add(arr1);
+        Array.add(arr2)
+        Array.add(arr3)</pre>
+        <hr>
+    <p><b>4-Write a JavaScript function to retrieve all the names of object's own and inherited properties.</b></p>
+    <pre>function student(name,rollNo){
+        this.name=name;
+        this.rollNo=rollNo;
+    }
+    let student1= new student("rishabh",08)
+    let student2= new student("aryan",02)
+    console.log(student1);
+    console.log(student2);
+    student1.sports='cricket'
+    
+    console.log(Object.getOwnPropertyNames(student1))
+    
+    </pre>
+    <hr>
+    <script src="./index.js"></script>
+</body>
+</html>
